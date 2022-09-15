@@ -1,97 +1,102 @@
-<html>
-    <head>
-        <title>Ball Animation</title>
-        <style>
-            *{
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallAnimation</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(9, 145, 186);
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(253, 251, 253, 0.503);
+            flex-direction: column;
+        }
+        .ball{
+            width: 70px;
+            height: 70px;
+            /* border: 10px solid rgb(107, 2, 2); */
+            background-image:repeating-linear-gradient(rgb(255, 0, 179),blue);
+            border-radius: 50%;
+            animation: bounce 1.5s linear infinite;
+        }
+        .shadow{
+            width: 40px;
+            height: 20px;
+            border: 1px solid grey;
+            background-color: grey;
+            border-radius: 50%;
+            animation: flash 1.5s linear infinite;
+            margin-right: 8px;
+        }
+        .container p{
+            font-size: 30px;
+            margin-top: 20px;
+            font-weight: bolder;
+            margin-left: 70px;
+        } 
+        .dot{
+            animation : blink 1.5s linear infinite;
+            font-size: 40px;
+            font-weight: bolder;
+        }   
+        @keyframes bounce {
+            0%{
+                transform: translateY(0px);
+                transform: rotate(-180deg);
             }
-            body{
-                background-color: rgb(245, 209, 162);
+            50%{
+                transform: translateY(-100px);
+                /* transform: rotate(180deg); */
+                
             }
-            .container{
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(253, 251, 253, 0.503);
-                flex-direction: column;
+            100%{
+                transform: translateY(0px);
+                transform: rotate(180deg);
             }
-            .ball{
-                width: 70px;
-                height: 70px;
-                /* border: 10px solid rgb(107, 2, 2); */
-                background-image:repeating-linear-gradient(yellow,blue);
-                border-radius: 50%;
-                animation: bounce 1.5s linear infinite;
+        }
+        @keyframes flash {
+            0%{
+                transform: scale(1.5);
             }
-            .shadow{
-                width: 40px;
-                height: 20px;
-                border: 1px solid grey;
-                background-color: grey;
-                border-radius: 50%;
-                animation: flash 1.5s linear infinite;
-                margin-right: 8px;
+            50%{
+                transform: scale(1);
             }
-            .container p{
-                font-size: 30px;
-                margin-top: 20px;
-                font-weight: bolder;
-                margin-left: 70px;
-            } 
-            .dot{
-                animation : blink 1.5s linear infinite;
-                font-size: 40px;
-                font-weight: bolder;
-            }   
-            @keyframes bounce {
-                0%{
-                    transform: translateY(0px);
-                    transform: rotate(-180deg);
-                }
-                50%{
-                    transform: translateY(-100px);
-                    /* transform: rotate(180deg); */
-                    
-                }
-                100%{
-                    transform: translateY(0px);
-                    transform: rotate(180deg);
-                }
+            100%{
+                transform: scale(.5);
             }
-            @keyframes flash {
-                0%{
-                    transform: scale(1.5);
-                }
-                50%{
-                    transform: scale(1);
-                }
-                100%{
-                    transform: scale(.5);
-                }
+        }
+        @keyframes blink {
+            0%{
+                opacity: 0;
             }
-            @keyframes blink {
-                0%{
-                    opacity: 0;
-                }
-                50%{
-                    opacity: 0.5;
-                }
-                100%{
-                    opacity: 1;
-                }
+            50%{
+                opacity: 0.5;
             }
-        </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="ball"></div>
-                <div class="shadow"></div>
-                <p>Loading <span class="dot">. . . .</span>
-                </p>
-            </div>
-        </body>
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+        <div class="shadow"></div>
+        <p>Loading <span class="dot">. . . .</span>
+        </p>
+    </div>
+</body>
 </html>
